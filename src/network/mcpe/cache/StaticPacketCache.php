@@ -54,7 +54,7 @@ class StaticPacketCache{
 	 * @return list<BiomeDefinitionEntry>
 	 */
 	private static function loadBiomeDefinitionModel(string $filePath) : array{
-		$biomeEntries = json_decode(Filesystem::fileGetContents($filePath), false);
+		$biomeEntries = (array)json_decode(Filesystem::fileGetContents($filePath), false);
 		if(!is_array($biomeEntries)){
 			throw new SavedDataLoadingException("$filePath root should be an array, got " . get_debug_type($biomeEntries));
 		}
